@@ -21,10 +21,8 @@ var commentRoutes       = require("./routes/comments"),
         // First DEVELOPMENT DB. is local DB, for testing and building app
         // Second is external for the deployed app.
         // using environment variables to check which DB to use
-// DEV DB:
+        // Both local and external are set to same variable--> DATABASEURL
 mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });
-// EXTERNAL DB:
-// mongoose.connect("mongodb://CayShea:Cona14@ds111113.mlab.com:11113/yelpcampcs", { useNewUrlParser: true });
 
 
 app.set("view engine", "ejs");
