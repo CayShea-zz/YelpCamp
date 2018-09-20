@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 var express =       require ("express"),
     app =           express(),
     bodyParser =    require("body-parser"),
@@ -9,12 +11,13 @@ var express =       require ("express"),
     User =          require("./models/user"),
     SeedDB=         require("./seeds"),
     flash=          require("connect-flash"),
-    methodOverride= require("method-override");
+    methodOverride= require("method-override")
+    
     
 //add var for ROUTES files
 var commentRoutes       = require("./routes/comments"),
     campgroundRoutes    = require("./routes/campgrounds"),
-    indexRoutes          = require("./routes/index");
+    indexRoutes          = require("./routes/index")
 
 
 // Best to have 2 DATABASES.
@@ -22,7 +25,9 @@ var commentRoutes       = require("./routes/comments"),
         // Second is external for the deployed app.
         // using environment variables to check which DB to use
         // Both local and external are set to same variable--> DATABASEURL
-mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });
+// mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v10";
+mongoose.connect(url, { useNewUrlParser: true });
 
 
 app.set("view engine", "ejs");
