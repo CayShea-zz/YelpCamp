@@ -17,8 +17,14 @@ var commentRoutes       = require("./routes/comments"),
     indexRoutes          = require("./routes/index");
 
 
-// mongoose.connect("mongodb://localhost/yelp_camp", { useNewUrlParser: true });
-mongoose.connect("mongodb://CayShea:Cona14@ds111113.mlab.com:11113/yelpcampcs", { useNewUrlParser: true });
+// Best to have 2 DATABASES.
+        // First DEVELOPMENT DB. is local DB, for testing and building app
+        // Second is external for the deployed app.
+        // using environment variables to check which DB to use
+// DEV DB:
+mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });
+// EXTERNAL DB:
+// mongoose.connect("mongodb://CayShea:Cona14@ds111113.mlab.com:11113/yelpcampcs", { useNewUrlParser: true });
 
 
 app.set("view engine", "ejs");
