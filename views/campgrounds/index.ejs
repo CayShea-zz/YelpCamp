@@ -3,15 +3,21 @@
 <div class= "container">
     <header class="jumbotron">
         <div class= "container">
-            <h1>Welcome to YelpCamp</h1>
+            <h2>Welcome to YelpCamp</h2>
             <p> Grab your flannel shirt- it's time to camp!</p>
             <p>
                 <a href = "/campgrounds/new" class = "btn btn-primary btn-lg">Add Campground</a>
             </p>
+           
         </div>
     </header>
     
-    <div class = "row">
+    <div class = "row text-center" style= "display:flex; flex-wrap: wrap;">
+        <div class="col-md-12">
+            <% if(noMatch !== undefined){ %>
+                <h3><%= noMatch %></h3>
+            <% } %>
+        </div>
             <% campgrounds.forEach(function(entry){ %>
                 <div class = "col-md-3 col-sm-6">
                     <div class = "thumbnail">

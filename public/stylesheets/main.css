@@ -18,3 +18,12 @@
     height: 400px;
     width: 100%;
 }
+
+.searchBar {
+    margin-top: 10px;
+    
+}
+
+.formSearch {
+    margin-right: 5px;
+}
